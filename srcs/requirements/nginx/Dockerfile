@@ -6,4 +6,4 @@ RUN apt-get update -y \
 
 EXPOSE 80
 
-CMD ["bash"]
+CMD ["nginx", "-g", "daemon off;"]
