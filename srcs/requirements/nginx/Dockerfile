@@ -12,6 +12,7 @@ RUN apt-get update -y \
         -out /etc/ssl/certs/nginx.crt \
         -subj "/C=MO/L=TE/O=1337/OU=student/CN=rlabbiz.42.fr"
 
+COPY conf/nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 80
 
