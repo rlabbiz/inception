@@ -16,4 +16,4 @@ COPY conf/nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 80
 
-CMD ["bash"]
+CMD ["nginx", "-g", "daemon off;"]
