@@ -13,4 +13,6 @@ RUN mkdir wordpress && cd wordpress \
     && wp core download --allow-root \
     && cd ..
 
-CMD ["bash"]
+COPY tools/script.sh .
+
+CMD ["./script.sh"]
