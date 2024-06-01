@@ -2,4 +2,8 @@ FROM debian:bookworm
 
 RUN apt-get update && apt-get install mariadb-server -y
 
-CMD ["bash"]
+COPY tools/script.sh .
+
+RUN chmod +x script.sh
+
+CMD ["./script.sh"]
