@@ -1,5 +1,5 @@
 FROM debian:bookworm
 
-RUN apt update && apt install mariadb-server
+RUN apt-get update && apt-get install mariadb-server -y
 
 CMD ["bash"]
