@@ -16,4 +16,6 @@ mysql < sql
 
 rm sql
 
-bash
+kill $(cat /var/run/mysqld/mysqld.pid)
+
+mysqld -u root
