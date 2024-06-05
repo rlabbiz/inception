@@ -11,10 +11,7 @@ RUN apt-get update && apt-get upgrade \
 #     && mv wp-cli.phar /usr/local/bin/wp \
 #     && chmod +x /usr/local/bin/wp
 
-# move to script
-# RUN mkdir wordpress && cd wordpress \
-#     && wp core download --allow-root \
-#     && cd ..
+
 
 COPY tools/script.sh .
 
