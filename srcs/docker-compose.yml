@@ -9,10 +9,15 @@ services:
       - db_data:/var/lib/mysql
     networks :
       - inception
-  # wordpress:
-  #   build: requirements/wordpress
-  #   volumes:
-  #     - wordpress:/var/lib/mysql
+
+  wordpress:
+    build: requirements/wordpress
+    depends_on : 
+      - mariadb
+    volumes:
+      - wp_data:/var/www/html
+    networks:
+      - inception
 
 volumes:
   wp_data:
