@@ -1,11 +1,15 @@
 FROM debian:bookworm
 
-RUN apt-get update && apt-get install mariadb-server -y && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y mariadb-server
 
-COPY tools/script.sh .
+RUN mkdir -p /var/run/mysqld
 
-RUN chmod +x script.sh
+RUN chmod 777 /var /var/run /var/run/mysqld /run/mysqld /var/lib/mysql
 
-EXPOSE 3306
+COPY /tools/script.sh /
 
-CMD ["./script.sh"]
+RUN chmod +x /script.sh
+
+ENTRYPOINT ["sh", "/script.sh"]
+
+CMD ["mariadbd", "--user=mysql", "--bind-address=0.0.0.0"]
