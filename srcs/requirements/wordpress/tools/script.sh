@@ -12,6 +12,6 @@ wp config create --dbname=$db_name --dbuser=$db_user --dbhost=mariadb:3306 --dbp
 
 wp core install --allow-root --url=rlabbiz.42.fr --title=rlabbiz --admin_user=rlabbiz --admin_password=0000 --admin_email=redalabbiz@gmail.com
 
-# wp user create	--allow-root $WP_USER $USER_EMAIL --role=author --user_pass=$WP_PASS
+wp user create	--allow-root reda reda@gmail.com --role=author --user_pass=0000
 
 exec "$@"
