@@ -5,6 +5,8 @@ services:
     build : requirements/mariadb
     image : mariadb
     container_name : mariadb
+    env_file :
+      - .env
     expose:
       - "3306"
     volumes :
@@ -16,7 +18,9 @@ services:
     image : wordpress
     container_name: wordpress
     build: requirements/wordpress
-    depends_on : 
+    env_file:
+      - .env
+    depends_on :
       - mariadb
     expose:
       - "9000"
@@ -26,8 +30,11 @@ services:
       - inception
   
   nginx:
-    image: nginx
     build: requirements/nginx
+    image: nginx
+    container_name: nginx
+    env_file:
+      - .env
     depends_on :
       - wordpress
     volumes:
@@ -41,16 +48,16 @@ volumes:
   wp_data:
     driver_opts:
       type : local
-      device: /home/rlabbiz/data/wordpress
+      device: /home/reda/data/wordpress
       o: bind
 
   db_data: 
     driver_opts:
       type : local
-      device: /home/rlabbiz/data/database
+      device: /home/reda/data/database
       o: bind
 
 
 networks:
-  inception : 
+  inception :
     name: inception
