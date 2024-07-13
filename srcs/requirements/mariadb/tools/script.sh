@@ -1,9 +1,5 @@
 #!/bin/bash
 
-export DB_NAME='wordpress'
-export DB_USER='rlabbiz'
-export DB_PASS='0000'
-
 echo "\
 FLUSH PRIVILEGES;
 CREATE DATABASE IF NOT EXISTS ${DB_NAME} ;
