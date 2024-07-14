@@ -13,6 +13,7 @@ services:
       - db_data:/var/lib/mysql
     networks :
       - inception
+    restart: always
 
   wordpress:
     image : wordpress
@@ -28,6 +29,7 @@ services:
       - wp_data:/var/www/html
     networks:
       - inception
+    restart: always
   
   nginx:
     build: requirements/nginx
@@ -43,21 +45,22 @@ services:
       - "443:443"
     networks:
       - inception
+    restart: always
 
 volumes:
   wp_data:
     driver_opts:
       type : local
-      device: /home/reda/data/wordpress
+      device: /home/rlabbiz/data/wordpress
       o: bind
 
   db_data: 
     driver_opts:
       type : local
-      device: /home/reda/data/database
+      device: /home/rlabbiz/data/database
       o: bind
 
 
 networks:
-  inception :
-    name: inception
+  inception:
+    driver: bridge
